@@ -8,10 +8,10 @@
 
 <div align="center">
   <h3>
-    <a href="https://auth-6c8y2ojar-eadortsu.vercel.app/">
+    <a href="https://uni-gha-auth.vercel.app/">
       Demo
     </a> |
-  <a href="https://daba-graphql-auth.herokuapp.com/graphql">
+  <a href="https://unighanaauth-backend-production.up.railway.app/graphql">
       GraphQL PlayGround
     </a>
     <span> | </span>
@@ -38,8 +38,8 @@
 
 You will be required to design and build a login and register page for a website that includes all essential functions, such as prompts when a password is wrong or when a user has successfully logged in.
 
--   <a href="https://auth-6c8y2ojar-eadortsu.vercel.app/"> Demo</a>
-- <a href="https://daba-graphql-auth.herokuapp.com/graphql">GraphQL PlayGround </a>
+-   <a href="https://uni-gha-auth.vercel.app/"> Demo</a>
+- <a href="https://unighanaauth-backend-production.up.railway.app/graphql">GraphQL PlayGround </a>
 
 
 ### Built With
@@ -50,7 +50,7 @@ You will be required to design and build a login and register page for a website
 - [Nuxt.js](https://nuxtjs.org/)
 - [Vuetify](https://vuetifyjs.com/en/)
 - [Vercel](https://vercel.com/)
-- [Heroku](https://heroku.com)
+- [Railway](https://railway.app/)
 
 ## Features
 
