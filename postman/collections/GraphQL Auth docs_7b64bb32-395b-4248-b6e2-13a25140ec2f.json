@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "6c18adc9-5a4c-42c2-aba5-4fb5f6f39ff4",
+		"name": "GraphQL Auth docs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "mutations",
+			"item": [
+				{
+					"name": "updateUser",
+					"id": "a6e093a5-c786-43e2-9126-85795d93b437",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation updateUser ($updateUserInput: UpdateUserInput!) {\n    updateUser (updateUserInput: $updateUserInput) {\n        _id\n        name\n        username\n        bio\n        phone\n        email\n        password\n        photo\n        reset_code\n        last_login\n    }\n}",
+								"variables": "{\n  \"updateUserInput\": {\n    \"name\": \"\",\n    \"bio\": \"\",\n    \"email\": \"\",\n    \"phone\": \"\",\n    \"password\": \"\",\n    \"photo\": \"\",\n    \"_id\": \"\",\n    \"reset_code\": \"\",\n    \"last_login\": \"\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeUser",
+					"id": "e7954e98-9369-47d0-ab9d-998bbd3a7ae7",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation removeUser ($_id: String!) {\n    removeUser (_id: $_id) {\n        _id\n        name\n        username\n        bio\n        phone\n        email\n        password\n        photo\n        reset_code\n        last_login\n    }\n}",
+								"variables": "{\n  \"_id\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"id": "6b9562f6-3e07-4dae-8b9e-4b5b91d418b0",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation login ($user: LoginInput!) {\n    login (user: $user) {\n        _id\n        name\n        username\n        bio\n        phone\n        email\n        password\n        photo\n        reset_code\n        last_login\n        token\n    }\n}",
+								"variables": "{\n  \"user\": {\n    \"email\": \"\",\n    \"password\": \"\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"id": "e972f47f-c70a-420e-befc-86bee15452c1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation signup ($user: SignUpInput!) {\n    signup (user: $user) {\n        _id\n        name\n        username\n        bio\n        phone\n        email\n        password\n        photo\n        reset_code\n        last_login\n        token\n    }\n}",
+								"variables": "{\n  \"user\": {\n    \"name\": \"\",\n    \"bio\": \"\",\n    \"email\": \"\",\n    \"phone\": \"\",\n    \"password\": \"\",\n    \"photo\": \"\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "socialLogin",
+					"id": "e9e3719f-522a-42ec-9a7d-317cfe561d67",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation socialLogin ($email: String!, $token: String, $fcm: String) {\n    socialLogin (email: $email, token: $token, fcm: $fcm) {\n        _id\n        name\n        username\n        bio\n        phone\n        email\n        password\n        photo\n        reset_code\n        last_login\n        token\n    }\n}",
+								"variables": "{\n  \"email\": \"\",\n  \"token\": \"\",\n  \"fcm\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sendRestLink",
+					"id": "38338072-45c7-4880-a849-c44578351ede",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation sendRestLink ($user: RestInput!) {\n    sendRestLink (user: $user) {\n        msg\n        status\n        email\n        phone\n    }\n}",
+								"variables": "{\n  \"user\": {\n    \"email\": \"\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resetPassword",
+					"id": "4e78bcc5-24b0-4ece-a6ab-e29676b3cfd0",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation resetPassword ($reset_code: String!, $password: String!) {\n    resetPassword (reset_code: $reset_code, password: $password) {\n        _id\n        name\n        username\n        bio\n        phone\n        email\n        password\n        photo\n        reset_code\n        last_login\n        token\n    }\n}",
+								"variables": "{\n  \"reset_code\": \"\",\n  \"password\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "78c9d228-38ce-4068-b410-233ef096f97d"
+		},
+		{
+			"name": "queries",
+			"item": [
+				{
+					"name": "users",
+					"id": "62c8fc27-8be3-4974-8803-867ed715ddec",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query users {\n    users {\n        _id\n        name\n        username\n        bio\n        phone\n        email\n        password\n        photo\n        reset_code\n        last_login\n    }\n}",
+								"variables": "{}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"id": "71d25352-e620-4b32-8c13-1e382feaf387",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query user ($_id: String!) {\n    user (_id: $_id) {\n        _id\n        name\n        username\n        bio\n        phone\n        email\n        password\n        photo\n        reset_code\n        last_login\n    }\n}",
+								"variables": "{\n  \"_id\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"id": "5d382875-722b-4702-bdef-027ccb5966b2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query me {\n    me {\n        _id\n        name\n        username\n        bio\n        phone\n        email\n        password\n        photo\n        reset_code\n        last_login\n    }\n}",
+								"variables": "{}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkRestLink",
+					"id": "2244b375-68df-458b-81d1-77fd5d34ec3b",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query checkRestLink ($reset_code: String!) {\n    checkRestLink (reset_code: $reset_code) {\n        _id\n        name\n        username\n        bio\n        phone\n        email\n        password\n        photo\n        reset_code\n        last_login\n    }\n}",
+								"variables": "{\n  \"reset_code\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "8e650bbc-a8df-4269-b92e-69b87bf2d58b"
+		}
+	],
+	"variable": [
+		{
+			"id": "url",
+			"key": "url",
+			"value": "",
+			"type": "any",
+			"description": "URL for the request."
+		}
+	]
+}

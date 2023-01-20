@@ -1,0 +1,123 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+    _id: String!
+
+    """Full Name """
+    name: String
+
+    """Full Name """
+    username: String
+
+    """User bio"""
+    bio: String
+
+    """Phone Number"""
+    phone: String
+
+    """User email """
+    email: String!
+
+    """Password"""
+    password: String!
+
+    """Photo"""
+    photo: String
+
+    """reset code"""
+    reset_code: String
+
+    """last login"""
+    last_login: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type AuthOutput {
+    _id: String!
+    name: String
+    username: String
+    bio: String
+    phone: String
+    email: String!
+    password: String!
+    photo: String
+    reset_code: String
+    last_login: DateTime
+    token: String!
+}
+
+type ResetOutput {
+    msg: String
+    status: Boolean
+    email: String
+    phone: Boolean
+}
+
+type Query {
+    users: [User!]!
+    user(_id: String!): User!
+
+    """Get currently login user"""
+    me: User!
+
+    """Check Reset User"""
+    checkRestLink(reset_code: String!): User!
+}
+
+type Mutation {
+    updateUser(updateUserInput: UpdateUserInput!): User!
+    removeUser(_id: String!): User!
+
+    """Login user with email and  password"""
+    login(user: LoginInput!): AuthOutput!
+
+    """Create User and login user"""
+    signup(user: SignUpInput!): AuthOutput!
+
+    """Login user with email from social"""
+    socialLogin(email: String!, token: String, fcm: String): AuthOutput
+
+    """Reset Password using email or phone"""
+    sendRestLink(user: RestInput!): ResetOutput!
+
+    """Check Reset User"""
+    resetPassword(reset_code: String!, password: String!): AuthOutput!
+}
+
+input UpdateUserInput {
+    name: String
+    bio: String
+    email: String
+    phone: String
+    password: String
+    photo: String
+    _id: String!
+    reset_code: String
+
+    """last login"""
+    last_login: DateTime
+}
+
+input LoginInput {
+    email: String!
+    password: String!
+}
+
+input SignUpInput {
+    name: String
+    bio: String
+    email: String!
+    phone: String
+    password: String!
+    photo: String
+}
+
+input RestInput {
+    email: String
+}
